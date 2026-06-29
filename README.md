@@ -1,11 +1,33 @@
 # NPD Project Management System
 
+![Status](https://img.shields.io/badge/status-active%20development-brightgreen)
+![Node](https://img.shields.io/badge/node-%3E%3D22-339933?logo=node.js&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
 A full-stack web application for tracking New Product Development (NPD) parts through **APQP** (Advanced Product Quality Planning) and **PPAP** (Production Part Approval Process) workflows in a manufacturing environment — including sample build scheduling, document management, and customer ETD tracking.
 
 > **Origin story:** I built this as a manufacturing/quality engineer, not a developer. Our team was tracking 80+ NPD parts across APQP/PPAP stages using shared Excel files — which meant version conflicts, no audit trail, and zero real-time visibility for management. This project replaced that process with a centralized, multi-user system. It's also the project I used to teach myself full-stack and cloud engineering fundamentals.
 
 🔗 **Live demo:** _[add your deployed link here once Phase 3 is done]_
 📺 **Walkthrough:** _[add a short screen-recording link here, optional but powerful]_
+
+> All screenshots below use fictional demo data (`backend/seed-demo-data.js`) — no real customer or business information.
+
+---
+
+## Screenshots
+
+### Dashboard — real-time KPIs, open issues, customer breakdown
+![Dashboard](docs/screenshots/01-dashboard.png)
+
+### APQP Tracker — phase-by-phase checklist with document upload per item
+![APQP Tracker](docs/screenshots/02-apqp-tracker.png)
+
+### Sample Build Gantt — plan vs. actual timeline, multi-ETD shipment tracking
+![Sample Build Gantt](docs/screenshots/03-sample-build-gantt.png)
+
+### NPD Part Register — full part list with bulk Excel upload
+![NPD Part Register](docs/screenshots/04-npd-part-register.png)
 
 ---
 
