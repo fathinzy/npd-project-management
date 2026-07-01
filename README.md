@@ -6,10 +6,10 @@
 
 A full-stack web application for tracking New Product Development (NPD) parts through **APQP** (Advanced Product Quality Planning) and **PPAP** (Production Part Approval Process) workflows in a manufacturing environment — including sample build scheduling, document management, and customer ETD tracking.
 
-> **Origin story:** I built this as a Project engineer (Manufacturing), not a developer. Our team was tracking 80+ NPD parts across APQP/PPAP stages using shared Excel files — which meant version conflicts, no audit trail, and zero real-time visibility for management. This project replaced that process with a centralized, multi-user system. It's also the project I used to teach myself full-stack and cloud engineering fundamentals.
+> **Origin story:** I built this as a manufacturing/quality engineer, not a developer. Our team was tracking 80+ NPD parts across APQP/PPAP stages using shared Excel files — which meant version conflicts, no audit trail, and zero real-time visibility for management. This project replaced that process with a centralized, multi-user system. It's also the project I used to teach myself full-stack and cloud engineering fundamentals.
 
-🔗 **Live demo:** _[Work In Progress]_
-📺 **Walkthrough:** _[Work In Progress]_
+🔗 **Live demo:** _[add your deployed link here once Phase 3 is done]_
+📺 **Walkthrough:** _[add a short screen-recording link here, optional but powerful]_
 
 > All screenshots below use fictional demo data (`backend/seed-demo-data.js`) — no real customer or business information.
 
@@ -79,23 +79,43 @@ A browser-based system where the whole engineering team works against one shared
 
 | Layer | Technology |
 |---|---|
-| Frontend | HTML5, CSS3, vanilla JavaScript, SheetJS (Excel parsing) |
+| Frontend | HTML5, CSS3, vanilla JavaScript |
+| Excel import/export | SheetJS (bulk upload parsing), ExcelJS (report export with native charts) |
 | Backend | Node.js 22, Express.js |
 | Database | SQLite (`node:sqlite`) |
 | File uploads | Multer |
+| Containerization | Docker, Docker Compose |
 | Cloud _(in progress)_ | AWS — see [`docs/cloud-migration.md`](docs/cloud-migration.md) |
 
 ---
 
 ## Local Development
 
-### Prerequisites
-- Node.js **22+** (for the built-in `node:sqlite` module)
-
-### Setup
+### Option A — Docker (recommended)
 
 ```bash
-git clone https://github.com/<your-username>/npd-project-management.git
+git clone https://github.com/fathinzy/npd-project-management.git
+cd npd-project-management
+
+docker compose up --build
+```
+
+The app is available at `http://localhost:3001`. Data persists in named Docker volumes (`npd-data`, `npd-uploads`) across container restarts.
+
+To seed fictional demo data into the running container:
+```bash
+docker compose exec backend node seed-demo-data.js
+```
+
+### Option B — Run directly with Node.js
+
+#### Prerequisites
+- Node.js **22+** (for the built-in `node:sqlite` module)
+
+#### Setup
+
+```bash
+git clone https://github.com/fathinzy/npd-project-management.git
 cd npd-project-management/backend
 
 npm install
@@ -124,16 +144,20 @@ This populates the database with sample customers, parts, and a sample build —
 
 ```
 .
+├── docker-compose.yml          # One-command local startup
+├── .dockerignore
 ├── backend/
-│   ├── server.js              # Express API + SQLite schema
-│   ├── seed-demo-data.js      # Fictional demo data seeder
+│   ├── Dockerfile
+│   ├── server.js               # Express API + SQLite schema
+│   ├── seed-demo-data.js       # Fictional demo data seeder
 │   ├── package.json
 │   └── .env.example
 ├── frontend/
-│   └── index.html             # Single-page app (served by backend)
+│   └── index.html              # Single-page app (served by backend)
 ├── docs/
 │   ├── architecture.md
-│   ├── cloud-migration.md     # AWS migration notes & decisions
+│   ├── cloud-migration.md      # AWS migration notes & decisions
+│   ├── lessons-learned.md
 │   └── screenshots/
 └── README.md
 ```
@@ -152,6 +176,15 @@ Real manufacturing sample builds often ship in multiple partial shipments. The G
 
 ### Bulk Excel Upload
 Engineers can upload dozens of parts at once via a provided Excel template. The backend does **name-based matching** against existing Customers/Materials/Processes (auto-creating them if new) — and never overwrites existing parts, only skips duplicates.
+
+### Report Generation — Excel export with native, editable charts
+The Report tab covers three report types, each viewable in-browser and exportable to a genuinely native `.xlsx` file:
+
+- **Sales Report** — shipped quantity, project count, and revenue, broken down by year or by month within a selected year, with a combo bar+line chart
+- **Sales Report 2** — revenue distribution as a pie chart, plus per-part cost/quantity breakdowns
+- **PSW Report** — Part Submission Warrant approval counts by year and by month, tracking PPAP approval velocity over time
+
+The Excel export is built client-side with [ExcelJS](https://github.com/exceljs/exceljs) (loaded on demand from CDN to keep the base page light) — it doesn't just dump a data table, it generates **real Excel chart objects** wired to the data via cell references, so anyone opening the file in Excel can click into a chart and see (or edit) the exact source range, the same as if they'd built the chart manually. Styling (header fills, currency number formats, column widths) is applied programmatically to match the in-app look.
 
 ---
 
