@@ -29,8 +29,9 @@ A full-stack web application for tracking New Product Development (NPD) parts th
 ### NPD Part Register — full part list with bulk Excel upload
 ![NPD Part Register](docs/screenshots/04-npd-part-register.png)
 
-### Sales Report — Full View of Sales Performance by Month, Years
+### Sales Report — Full View of Sales Performance by Month / Years
 ![Sales Report](docs/screenshots/05-sales-report.png)
+![Sales Report](docs/screenshots/05-sales-report2.png)
 ---
 
 ## The Problem
