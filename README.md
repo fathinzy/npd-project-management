@@ -8,8 +8,8 @@ A full-stack web application for tracking New Product Development (NPD) parts th
 
 > **Origin story:** I built this as a manufacturing/quality engineer, not a developer. Our team was tracking 80+ NPD parts across APQP/PPAP stages using shared Excel files — which meant version conflicts, no audit trail, and zero real-time visibility for management. This project replaced that process with a centralized, multi-user system. It's also the project I used to teach myself full-stack and cloud engineering fundamentals.
 
-🔗 **Live demo:** _[add your deployed link here once Phase 3 is done]_
-📺 **Walkthrough:** _[add a short screen-recording link here, optional but powerful]_
+🔗 **Live demo:** _[Work In-Progress]_
+📺 **Walkthrough:** _[Work In-Progress]_
 
 > All screenshots below use fictional demo data (`backend/seed-demo-data.js`) — no real customer or business information.
 
