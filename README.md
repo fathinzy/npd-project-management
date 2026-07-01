@@ -31,7 +31,7 @@ A full-stack web application for tracking New Product Development (NPD) parts th
 
 ### Sales Report — Full View of Sales Performance by Month / Years
 ![Sales Report](docs/screenshots/05-sales-report.png)
-![Sales Report](docs/screenshots/05-sales-report2.png)
+![Sales Report](docs/screenshots/06-sales-report2.png)
 ---
 
 ## The Problem
