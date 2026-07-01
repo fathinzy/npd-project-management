@@ -6,7 +6,7 @@
 
 A full-stack web application for tracking New Product Development (NPD) parts through **APQP** (Advanced Product Quality Planning) and **PPAP** (Production Part Approval Process) workflows in a manufacturing environment — including sample build scheduling, document management, and customer ETD tracking.
 
-> **Origin story:** I built this as a manufacturing/quality engineer, not a developer. Our team was tracking 80+ NPD parts across APQP/PPAP stages using shared Excel files — which meant version conflicts, no audit trail, and zero real-time visibility for management. This project replaced that process with a centralized, multi-user system. It's also the project I used to teach myself full-stack and cloud engineering fundamentals.
+> **Origin story:** I built this as a Project engineer (Manufacturing), not a developer. Our team was tracking 80+ NPD parts across APQP/PPAP stages using shared Excel files — which meant version conflicts, no audit trail, and zero real-time visibility for management. This project replaced that process with a centralized, multi-user system. It's also the project I used to teach myself full-stack and cloud engineering fundamentals.
 
 🔗 **Live demo:** _[Work In Progress]_
 📺 **Walkthrough:** _[Work In Progress]_
