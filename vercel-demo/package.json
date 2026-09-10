@@ -1,0 +1,10 @@
+{
+  "name": "npd-project-management-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Read-only Vercel demo of the NPD Project Management System, served from fictional seed data (no database, no filesystem).",
+  "engines": {
+    "node": "22.x"
+  },
+  "license": "MIT"
+}
